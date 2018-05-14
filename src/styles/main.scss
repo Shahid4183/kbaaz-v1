@@ -1,0 +1,26 @@
+@font-face {
+    font-family: Montserrat;
+    src: url('/platformfonts/Montserrat-SemiBold.ttf');
+  }
+  
+  @font-face {
+    font-family: MontserratBold;
+    src: url('/platformfonts/Montserrat-Bold.ttf');
+  }
+  
+  html {
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+  }
+  .login{
+    position: absolute;
+    min-width: 320px;
+    max-width: 400px;
+    height: auto;
+    top: 10%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+  }
