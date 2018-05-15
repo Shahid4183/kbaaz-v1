@@ -1,19 +1,19 @@
-import { createMuiTheme } from 'material-ui/styles';
-import { blue, grey } from 'material-ui/colors';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { blue600, grey900 } from 'material-ui/styles/colors';
 
-const themeDefault = createMuiTheme({
+const themeDefault = getMuiTheme({
   palette: {
   },
   appBar: {
     height: 57,
-    color: blue[600]
+    color: blue600
   },
   drawer: {
     width: 230,
-    color: grey[900]
+    color: grey900
   },
   raisedButton: {
-    primaryColor: blue[600],
+    primaryColor: blue600,
   },
   stepper: {
     iconColor: 'rgb(38, 165, 238)'

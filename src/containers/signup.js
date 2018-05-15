@@ -12,16 +12,19 @@ import RaisedButton from 'material-ui/RaisedButton'
 // components
 import InputField from '../components/inputField';
 
-class Login extends Component {
+class Signup extends Component {
   render() {
     return (
       <div className="login">
         <Paper className="login-container">
-            <div style={{fontSize:20}}>Login into your Account</div>
+            <div style={{fontSize:20}}>Create an Account</div>
             <form>
-            <Field name="username" myLabel="Email" myPlaceHolder="Email" component={InputField}/>
+            <Field name="firstname" myLabel="First Name" myPlaceHolder="First Name" component={InputField}/>
+            <Field name="lastname" myLabel="Last Name" myPlaceHolder="Last Name" component={InputField}/>
+            <Field name="phone" myLabel="Phone/Mobile" myType="number" myPlaceHolder="Phone/Mobile" component={InputField}/>
+            <Field name="email" myLabel="Email" myPlaceHolder="Email" component={InputField}/>
             <Field name="password" myType="password" myLabel="Password" myPlaceHolder="Password" component={InputField}/>
-            <RaisedButton label="Login" type="submit" primary={true} 
+            <RaisedButton label="Create Account" type="submit" primary={true} 
                 style={{ marginTop: 5}}
                 buttonStyle={{ background:'#55aa49'}}
                 fullWidth={true}
@@ -29,9 +32,9 @@ class Login extends Component {
             </form>
             <div
               style={{marginTop:10,fontSize:11, color:'grey'}}
-            >Not registered? <span><Link to="/signup" 
+            >Already have an account? <span><Link to="/login" 
               style={{color:'skyblue',textDecoration:'none'}}
-            >Create an account</Link></span></div>
+            >Login here</Link></span></div>
         </Paper>
       </div>
     )
@@ -47,9 +50,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-Login = reduxForm({
-  form:'login'
-})(Login)
+Signup = reduxForm({
+  form:'signup'
+})(Signup)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)
 

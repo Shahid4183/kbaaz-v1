@@ -13,6 +13,12 @@
     -webkit-font-smoothing: antialiased;
     height: 100%;
   }
+
+  input:-webkit-autofill {
+    box-shadow: 0ch;
+  	-webkit-box-shadow: 0 0 0 500px white inset;
+  }
+
   .login{
     position: absolute;
     min-width: 320px;
@@ -23,4 +29,12 @@
     right: 0;
     margin: auto;
     text-align: center;
+  }
+  .login-container{
+    padding:10px 25px 10px 25px;    
+  }
+  .container{
+    max-width:1024px;
+    position: absolute;
+    left: 20%;
   }

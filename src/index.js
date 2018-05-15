@@ -18,7 +18,7 @@ injectTapEventPlugin();
 
 ReactDOM.render(
     <Provider store={Store}>
-        <MuiThemeProvider theme={ThemeDefault}>
+        <MuiThemeProvider muiTheme={ThemeDefault}>
             <Routes/>
         </MuiThemeProvider>
     </Provider>
