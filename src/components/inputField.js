@@ -21,9 +21,6 @@ class InputField extends Component {
                 //underlineStyle={{ bottom: 0 ,borderBottomLeftRadius:6,borderBottomRightRadius:6}}
                 floatingLabelFixed={true}
                 floatingLabelText={this.props.myPlaceHolder}
-                //floatingLabelStyle={{top:25,marginLeft:5}}
-               // inputStyle={{marginTop:0,height:65,padding:5}}
-           
             />
 
         )

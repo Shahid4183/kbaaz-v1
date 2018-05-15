@@ -18,15 +18,15 @@ class Login extends Component {
       <div className="login">
         <Paper className="login-container">
             <div style={{fontSize:20}}>Login into your Account</div>
-            <form>
-            <Field name="username" myLabel="Email" myPlaceHolder="Email" component={InputField}/>
-            <Field name="password" myType="password" myLabel="Password" myPlaceHolder="Password" component={InputField}/>
-            <RaisedButton label="Login" type="submit" primary={true} 
-                style={{ marginTop: 5}}
-                buttonStyle={{ background:'#55aa49'}}
-                fullWidth={true}
-            />
-            </form>
+              <form>
+                <Field name="username" myLabel="Email" myPlaceHolder="Email" component={InputField}/>
+                <Field name="password" myType="password" myLabel="Password" myPlaceHolder="Password" component={InputField}/>
+                <RaisedButton label="Login" type="submit" primary={true} 
+                    style={{ marginTop: 5}}
+                    buttonStyle={{ background:'#55aa49'}}
+                    fullWidth={true}
+                />
+              </form>
             <div
               style={{marginTop:10,fontSize:11, color:'grey'}}
             >Not registered? <span><Link to="/signup" 

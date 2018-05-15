@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 // material ui
 import Drawer from 'material-ui/Drawer';
 import { List,ListItem } from 'material-ui/List';
-import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 
 // data
@@ -12,7 +11,7 @@ class LeftBar extends Component {
   render() {
     return (
       <Drawer docked={true} containerStyle={{ backgroundColor: "#edf2f4" }}>
-        <div style={{fontSize:'30px',textAlign:'center',color:'#424040',padding:'25px 0 20px 0'}}>KBAAZ</div>
+        <div style={{fontSize:'30px',textAlign:'center',color:'#424040',padding:'14px 0 20px 0'}}>KBAAZ</div>
         <List style={{backgroundColor:'#f9fbfc',padding:0}}>
           <Divider/>
             {
