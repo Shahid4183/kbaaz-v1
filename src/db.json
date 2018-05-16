@@ -1,0 +1,22 @@
+{
+    "kidsData":[
+        {
+            "kidName":"First Kid",
+            "accountNo":"ACCOUNT_1",
+            "balance":"$XXX.XX",
+            "created_at":"16/5/2018"
+        },
+        {
+            "kidName":"Second Kid",
+            "accountNo":"ACCOUNT_1",
+            "balance":"$XXX.XX",
+            "created_at":"14/5/2018"
+        },
+        {
+            "kidName":"Third Kid",
+            "accountNo":"ACCOUNT_1",
+            "balance":"$XXX.XX",
+            "created_at":"15/5/2018"
+        }
+    ]
+}
