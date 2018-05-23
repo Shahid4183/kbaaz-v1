@@ -11,7 +11,6 @@ import './styles/main.css';
 import 'font-awesome/css/font-awesome.css';
 import 'flexboxgrid/css/flexboxgrid.css';
 import ThemeDefault from './styles/theme-default';
-import 'react-notifications/lib/notifications.css';
 
 import Store from './store' 
 //Needed for onTouchTap

@@ -12,6 +12,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Add from 'material-ui/svg-icons/content/add'
 import { DatePicker } from 'redux-form-material-ui';
 import RederTextarea from '../components/renderTextArea'
+import Event from 'material-ui/svg-icons/action/event'
 
 // components
 import InputField from '../components/inputField';
@@ -63,12 +64,12 @@ class Events extends Component {
                         <div>
                             <h2>Events</h2>
                             <List>
-                                <ListItem primaryText="First Event" leftAvatar={<Avatar src="platformimages/user.png" backgroundColor="white"/>} secondaryText="this is sample description of this event">
+                                <ListItem primaryText="First Event" leftAvatar={<Avatar icon={<Event/>}/>} secondaryText="this is sample description of this event">
                                     <span style={{float:'right'}}>
                                         <div style={{color:"#726B6B"}}>21-May-2018</div>
                                     </span>
                                 </ListItem>
-                                <ListItem primaryText="Second Event" leftAvatar={<Avatar src="platformimages/user.png" backgroundColor="white"/>} secondaryText="this is sample description of this event">
+                                <ListItem primaryText="Second Event" leftAvatar={<Avatar icon={<Event/>}/>} secondaryText="this is sample description of this event">
                                     <span style={{float:'right'}}>
                                         <div style={{color:"#726B6B"}}>26-June-2018</div>
                                     </span>

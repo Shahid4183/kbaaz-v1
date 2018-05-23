@@ -21,6 +21,10 @@ const data = {
         {title:'Help',value:1,icon:<Help/>,link:'help'},
         {title:'Logout',value:2,icon:<Logout/>,link:'logout'},
     ],
+    login:{
+        username:'user1@kbaaz.com',
+        password:'kbaaz123'
+    },
     kids:[
         {
             firstname:'First',

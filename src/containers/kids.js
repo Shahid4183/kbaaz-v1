@@ -77,7 +77,7 @@ class Kids extends Component {
     }
     onChange = (event,value)=>{        
         let dataList = data.kids.filter((item,index)=>{
-                 if(item.firstname.match(value)||item.lastname.match(value))
+                 if(item.firstname.toLowerCase().match(value.toLowerCase())||item.lastname.toLowerCase().match(value.toLowerCase()))
                      return item
                  })
        this.setState({
@@ -137,7 +137,7 @@ class Kids extends Component {
                                 }}    
                                 onClick={e=>{
                                     this.props.SetInitialValues(undefined)
-                                    this.setState({showList:false})
+                                    this.setState({showList:false,update:false})
                                 }}                        
                             />
                         </div>
