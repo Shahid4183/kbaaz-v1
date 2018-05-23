@@ -8,6 +8,7 @@ import App from './containers/app'
 import Events from './containers/events';
 import Kids from './containers/kids';
 import Contacts from './containers/contacts';
+import Logout from './containers/logout';
 class Routes extends Component {
     render(){
         return(
@@ -17,6 +18,7 @@ class Routes extends Component {
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/" component={Login} />
                     <Route exact path="/login" component={Login} />
+                    <Route exact path="/logout" component={Logout} />
                     <App>
                         <Route exact path="/kids" component={Kids} />
                         <Route exact path="/events" component={Events} />

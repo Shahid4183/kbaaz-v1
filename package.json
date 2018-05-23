@@ -2,12 +2,17 @@
   "name": "kbaaz-v1",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shahid4183.github.io/kbaaz-v1",
   "dependencies": {
     "flexboxgrid": "^6.3.1",
     "font-awesome": "^4.7.0",
+    "gh-pages": "^1.1.0",
     "material-ui": "^0.20.1",
+    "moment": "^2.22.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-notification-system": "^0.2.17",
+    "react-notifications": "^1.4.3",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
@@ -19,6 +24,8 @@
     "redux-promise": "^0.5.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",

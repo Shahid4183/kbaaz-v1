@@ -11,14 +11,24 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 // components
 import InputField from '../components/inputField';
+import data from '../data';
 
 class Login extends Component {
+  onSubmit = (values)=>{
+    if(values){
+      if(values.username.toLowerCase() === data.login.username.toLowerCase() ){
+        if (values.password.toLowerCase() === data.login.password.toLowerCase()) {
+          this.props.history.push('/kids')
+        }
+      }
+    }
+  }
   render() {
     return (
       <div className="login">
         <Paper className="login-container">
             <div style={{fontSize:20}}>Login into your Account</div>
-              <form>
+              <form onSubmit={this.props.handleSubmit(values=>this.onSubmit(values))}>
                 <Field name="username" myLabel="Email" myPlaceHolder="Email" component={InputField}/>
                 <Field name="password" myType="password" myLabel="Password" myPlaceHolder="Password" component={InputField}/>
                 <RaisedButton label="Login" type="submit" primary={true} 
