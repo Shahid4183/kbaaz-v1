@@ -21,7 +21,7 @@ class Signup extends Component {
             <form>
             <Field name="firstname" myLabel="First Name" myPlaceHolder="First Name" component={InputField}/>
             <Field name="lastname" myLabel="Last Name" myPlaceHolder="Last Name" component={InputField}/>
-            <Field name="phone" myLabel="Phone/Mobile" myType="number" myPlaceHolder="Phone/Mobile" component={InputField}/>
+            <Field name="phone" myLabel="Phone/Mobile" myPlaceHolder="Phone/Mobile" component={InputField}/>
             <Field name="email" myLabel="Email" myPlaceHolder="Email" component={InputField}/>
             <Field name="password" myType="password" myLabel="Password" myPlaceHolder="Password" component={InputField}/>
             <RaisedButton label="Create Account" type="submit" primary={true} 
