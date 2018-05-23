@@ -2,7 +2,7 @@
   "name": "kbaaz-v1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shahid4183.github.io",
+  "homepage": "https://shahid4183.github.io/kbaaz-v1",
   "dependencies": {
     "flexboxgrid": "^6.3.1",
     "font-awesome": "^4.7.0",
