@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { reduxForm,Field } from 'redux-form'
+import { reduxForm,Field, reset } from 'redux-form'
 
 // material ui
 import TextField from 'material-ui/TextField'
@@ -12,10 +12,16 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Add from 'material-ui/svg-icons/content/add'
 import { SelectField,DatePicker } from 'redux-form-material-ui';
 import MenuItem from 'material-ui/MenuItem';
+import moment from 'moment'
 
 // components
 import InputField from '../components/inputField';
+import data from '../data'
 
+// actions
+import { SetInitialValues } from '../actions/common_actions'
+
+var NotificationSystem = require('react-notification-system');
 const styles = {
     searchFieldFocusIn:{
         border:'1.5px solid #00BAD5',
@@ -31,21 +37,52 @@ const styles = {
     }
 }
 
+var notificationStyle = {
+  NotificationItem: { // Override the notification item
+    DefaultStyle: { // Applied to every notification, regardless of the notification level
+      paddingLeft:'50px'
+    },
+  }
+}
+
 class Kids extends Component {
     constructor(props) {
         super(props);
         this.state = {
             searchFieldFocus:false,
-            showList:true
+            showList:true,
+            dataList:[]
         }
     }
-    
+    componentWillMount() {
+        this.setState({dataList:data.kids})
+    }
     componentDidMount(){
         let searchField = document.getElementById('searchfiled');
         searchField.addEventListener('focusin',e => this.setState({searchFieldFocus:true}))
         searchField.addEventListener('focusout',e => this.setState({searchFieldFocus:false}))
+        this._notificationSystem = this.refs.notificationSystem;
     }
     searchFieldFocusListener = (event)=>{
+    }
+    _addNotification = (e, title,message) => {
+        this._notificationSystem.addNotification({
+            title:title,
+            message: message,
+            level: 'success',
+            position:'br',
+            autoDismiss: 5,
+            update:false
+        })
+    }
+    onChange = (event,value)=>{        
+        let dataList = data.kids.filter((item,index)=>{
+                 if(item.firstname.match(value)||item.lastname.match(value))
+                     return item
+                 })
+       this.setState({
+           dataList:dataList?dataList:data.kids
+       }) 
     }
     render() {
         return (
@@ -56,6 +93,7 @@ class Kids extends Component {
                     fullWidth={true}
                     underlineShow={false}
                     style={this.state.searchFieldFocus? styles.searchFieldFocusIn : styles.searchFieldFocusOut}
+                    onChange={this.onChange}
                 />
                 <div className="custom-container">
                 {
@@ -63,18 +101,28 @@ class Kids extends Component {
                         <div>
                             <h2>KIDS</h2>
                             <List>
-                                <ListItem primaryText="First Kid" leftAvatar={<Avatar src="platformimages/user.png" backgroundColor="white"/>} secondaryText="ACCOUNT_1">
-                                    <span style={{float:'right'}}>
-                                        <div>$XXX.XX</div>
-                                        <div style={{color:"#726B6B"}}>Saved Today</div>
-                                    </span>
-                                </ListItem>
-                                <ListItem primaryText="Second Kid" leftAvatar={<Avatar src="platformimages/user.png" backgroundColor="white"/>} secondaryText="ACCOUNT_2">
-                                    <span style={{float:'right'}}>
-                                        <div>$XXX.XX</div>
-                                        <div style={{color:"#726B6B"}}>Saved Today</div>
-                                    </span>
-                                </ListItem>
+                                {
+                                    this.state.dataList  ? 
+                                    this.state.dataList.map((item,index)=>{
+                                        return(
+                                            <ListItem 
+                                                key={index}
+                                                primaryText={`${item.firstname} ${item.lastname}`} 
+                                                leftAvatar={<Avatar src="platformimages/user.png" backgroundColor="white"/>} 
+                                                secondaryText={item.accountno}
+                                                onClick={e=>{
+                                                    this.props.SetInitialValues(item)
+                                                    this.setState({showList:false,update:true})
+                                                }}
+                                            >
+                                                <span style={{float:'right'}}>
+                                                    <div>{`$${item.balance}`}</div>
+                                                    <div style={{color:"#726B6B"}}>Saved {moment(item.created_at,"MM/DD/YYYY").fromNow()}</div>
+                                                </span>
+                                            </ListItem>
+                                        )
+                                    }):null
+                                }                                
                             </List>
                             <RaisedButton
                                 label="Add new kid"
@@ -87,11 +135,14 @@ class Kids extends Component {
                                 buttonStyle={{
                                     border:'1px solid #00BAD5'
                                 }}    
-                                onClick={e=>this.setState({showList:false})}                        
+                                onClick={e=>{
+                                    this.props.SetInitialValues(undefined)
+                                    this.setState({showList:false})
+                                }}                        
                             />
                         </div>
                     :
-                      <div style={{padding:50}}>
+                      <div style={{padding:'10px 50px 50px 50px'}}>
                             <form>
                                 <h3>New Kid</h3>
                                 <div className="row">
@@ -159,13 +210,18 @@ class Kids extends Component {
                                     </div>
                                 </div>
                                 <RaisedButton
-                                    label="Save"
+                                    label={this.state.update? "Update":"Save"}
                                     labelStyle={{
                                         color:'#00BAD5',
                                     }}
                                     buttonStyle={{
                                         border:'1px solid #00BAD5'
-                                    }}                            
+                                    }}         
+                                    onClick={e=>{
+                                        this.state.update ?
+                                        this._addNotification(e,"Updated!","Child saved successfully"):
+                                        this._addNotification(e,"Created!","Child saved successfully")
+                                    }}                   
                                 />  
                                 <RaisedButton
                                     style={{marginLeft:10}}
@@ -179,17 +235,20 @@ class Kids extends Component {
                       </div>
                 }        
                 </div>
+                <NotificationSystem ref="notificationSystem" style={notificationStyle}/>
             </div>
         );
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-	return bindActionCreators({}, dispatch)
+	return bindActionCreators({ SetInitialValues,reset }, dispatch)
 }
 
 const mapStateToProps = (state) => {
-	return {}
+	return {
+        initialValues:state.common.data
+    }
 }
 
 Kids = reduxForm({

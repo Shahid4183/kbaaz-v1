@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import LeftBar from '../components/leftbar';
-
 class App extends Component {
   render() {
     return (

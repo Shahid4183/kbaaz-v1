@@ -31,7 +31,7 @@ class LeftBar extends Component {
           {
             data.bottomMenu.map((item,index)=>{
               return(
-                <Link to={item.link} style={{textDecoration:'none'}}>
+                <Link to={item.link} style={{textDecoration:'none'}} key={index}>
                   <ListItem primaryText={item.title} leftIcon={item.icon} value={item.value} innerDivStyle={{fontSize:12}}/>
                   <Divider/>
                 </Link>

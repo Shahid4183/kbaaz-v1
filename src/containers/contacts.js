@@ -10,8 +10,6 @@ import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import RaisedButton from 'material-ui/RaisedButton';
 import Add from 'material-ui/svg-icons/content/add'
-import { SelectField,DatePicker } from 'redux-form-material-ui';
-import MenuItem from 'material-ui/MenuItem';
 
 // components
 import InputField from '../components/inputField';
@@ -117,7 +115,7 @@ class ContactUs extends Component {
                                     }}
                                     buttonStyle={{
                                         border:'1px solid #00BAD5'
-                                    }}                            
+                                    }}       
                                 />  
                                 <RaisedButton
                                     style={{marginLeft:10}}

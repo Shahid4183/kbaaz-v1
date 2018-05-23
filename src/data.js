@@ -20,6 +20,36 @@ const data = {
     bottomMenu:[
         {title:'Help',value:1,icon:<Help/>,link:'help'},
         {title:'Logout',value:2,icon:<Logout/>,link:'logout'},
+    ],
+    kids:[
+        {
+            firstname:'First',
+            lastname:'Kid',
+            dob:new Date(1995,10,17),
+            gender:'male',
+            accountno:'ACCOUNT_1',
+            balance:'XXX.XX',
+            created_at:'05/22/2018',
+            locationname:'Administrator Mailing Address',
+            state:'Michighan',
+            city:'DEARBORN',
+            street:'123 Main street',           
+            zipcode:'14330',
+        },
+        {
+            firstname:'Second',
+            lastname:'Kid',
+            dob:new Date(1995,10,1),
+            gender:'female',
+            accountno:'ACCOUNT_2',
+            balance:'XXX.XX',
+            created_at:'05/22/2018',
+            locationname:'Administrator Mailing Address',
+            state:'Michighan',
+            city:'DEARBORN',
+            street:'123 Main street',           
+            zipcode:'14330',
+        }
     ]
 }
 

@@ -11,6 +11,7 @@ import './styles/main.css';
 import 'font-awesome/css/font-awesome.css';
 import 'flexboxgrid/css/flexboxgrid.css';
 import ThemeDefault from './styles/theme-default';
+import 'react-notifications/lib/notifications.css';
 
 import Store from './store' 
 //Needed for onTouchTap
@@ -19,7 +20,7 @@ injectTapEventPlugin();
 ReactDOM.render(
     <Provider store={Store}>
         <MuiThemeProvider muiTheme={ThemeDefault}>
-            <Routes/>
+            <Routes/>            
         </MuiThemeProvider>
     </Provider>
 , document.getElementById('root'));

@@ -10,8 +10,8 @@ import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
 import RaisedButton from 'material-ui/RaisedButton';
 import Add from 'material-ui/svg-icons/content/add'
-import { SelectField,DatePicker } from 'redux-form-material-ui';
-import MenuItem from 'material-ui/MenuItem';
+import { DatePicker } from 'redux-form-material-ui';
+import RederTextarea from '../components/renderTextArea'
 
 // components
 import InputField from '../components/inputField';
@@ -89,42 +89,30 @@ class Events extends Component {
                             />
                         </div>
                     :
-                      <div style={{padding:50}}>
+                      <div style={{padding:'10px 50px 50px 50px'}}>
                             <form>
-                                <h3>New Kid</h3>
+                                <h3>Create Event</h3>
                                 <div className="row">
                                     <div className="col-xs">
                                         <div className="box">
-                                            <Field name="firstname" myLabel="First Name" myPlaceHolder="First Name" component={InputField}/>
+                                            <Field name="eventname" myPlaceHolder="Event Name" component={InputField}/>
                                         </div>
                                     </div>
                                     <div className="col-xs">
                                         <div className="box">
-                                            <Field name="lastname" myLabel="Last Name" myPlaceHolder="Last Name" component={InputField}/>
+                                            <Field name="description" myPlaceHolder="Event Description" component={RederTextarea}/>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-xs">
+                                    <div className="col-xs-6">
                                         <div className="box">
-                                            <Field name="dob" floatingLabelText="Date of Birth" component={DatePicker} fullWidth={true}/>
-                                        </div>
-                                    </div>
-                                    <div className="col-xs">
-                                        <div className="box">
-                                            <Field name="gender" hintText="Gender" floatingLabelText="Gender" fullWidth={true} component={SelectField}>
-                                                <MenuItem value="male" primaryText="Male"/>
-                                                <MenuItem value="female" primaryText="Female"/>
-                                                <MenuItem value="other" primaryText="Other"/>
-                                            </Field>
+                                            <Field name="doe" floatingLabelText="Event Date" component={DatePicker} fullWidth={true}/>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h3>Savings Account</h3>
-                                <Field name="accountno" myLabel="Account Number" myPlaceHolder="Account Number" component={InputField}/>
-
-                                <h3>Administrator Mailing Address</h3>
+                                <h3>Event Location</h3>
                                 <div className="row">
                                     <div className="col-xs">
                                         <div className="box">
